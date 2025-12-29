@@ -2,6 +2,14 @@
   <img src="banner.png" alt="TaskFlow Banner" width="100%">
 </p>
 
+<div align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/visionis/TaskFlow?style=flat-square&color=gold)
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=flat-square)
+
+</div>
 
 
 
