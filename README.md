@@ -1,25 +1,38 @@
 # TaskFlow 🌊
 
-A lightweight, high-performance asynchronous task manager for Python.
+A high-performance, lightweight asynchronous task manager for Python.
 
-## Features
-- **Concurrent Workers:** Efficient task processing with `asyncio`.
-- **Fault Tolerance:** Automated exponential backoff and retries.
-- **Graceful Shutdown:** Ensures queue completion before exit.
+## Core Features
+- **Concurrent Processing:** Multi-worker architecture built on `asyncio`.
+- **Fault Tolerance:** Automated retries with an exponential backoff strategy.
+- **Graceful Shutdown:** Ensures all tasks in the flow are completed before exit.
+- **Unique Identification:** Every task is assigned a unique UUID for tracking.
 
 ## Quick Start
 ```python
-from taskflow import TaskFlowEngine
 import asyncio
+from taskflow import TaskFlowEngine
 
-async def worker(data):
-    # Process your logic here
-    pass
+async def my_handler(data):
+    # Simulate processing logic
+    print(f"Processing: {data}")
 
 async def main():
-    flow = TaskFlowEngine(workers=4)
-    await flow.start(worker)
-    await flow.enqueue("data")
+    # Initialize engine with 5 workers and 3 retry attempts
+    flow = TaskFlowEngine(max_retries=3, workers=5)
+    
+    # Start the engine
+    await flow.start(my_handler)
+    
+    # Enqueue tasks
+    await flow.enqueue({"id": 101, "payload": "Sync Request"})
+    await flow.enqueue({"id": 102, "payload": "Database Update"})
+    
+    # Drain the queue and stop
     await flow.shutdown()
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
+
+Author
+Developed by visionis
