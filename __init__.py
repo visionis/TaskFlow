@@ -1,0 +1,6 @@
+# taskflow/__init__.py
+
+from .engine import TaskFlowEngine
+
+__version__ = "1.0.0"
+__author__ = "visionis"  
