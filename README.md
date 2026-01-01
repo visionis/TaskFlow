@@ -13,7 +13,7 @@
 
 
 
-# TaskFlow 🌊
+# TaskFlow 
 
 A high-performance, lightweight asynchronous task manager for Python.
 
